@@ -1,0 +1,719 @@
+[gd_scene load_steps=13 format=3 uid="uid://bqbnhejrixuiw"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_w671l"]
+[ext_resource type="Texture2D" uid="uid://boe2i0kfr31xr" path="res://icon.svg" id="2_ac76m"]
+[ext_resource type="Texture2D" uid="uid://7x36p8wtidgf" path="res://World/Textures/TestWave.png" id="3_ku0cm"]
+[ext_resource type="Script" path="res://Player/CanvasLayer.gd" id="3_t08cs"]
+[ext_resource type="Theme" uid="uid://bwnm8xifg7nve" path="res://Style/UITheme.tres" id="4_iilij"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rlfmu"]
+
+[sub_resource type="Animation" id="Animation_bi73i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Rod:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.229023, -0.247567, -0.78417)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Rod:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.479376, 0.551967, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l43yy"]
+resource_name = "fish"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Rod:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.229023, -0.247567, -0.78417), Vector3(0.251338, -0.224862, 0.77486), Vector3(-0.28927, -0.172691, -1.07431), Vector3(0.0471939, -0.33244, 0.0834606)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Rod:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.479376, 0.551967, 0), Vector3(0.479376, 0.551967, 0), Vector3(0.479376, 0.551967, 0), Vector3(0.479376, 0.551967, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"catch"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7psd6"]
+_data = {
+"RESET": SubResource("Animation_bi73i"),
+"fish": SubResource("Animation_l43yy")
+}
+
+[sub_resource type="Animation" id="Animation_ignfq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FishSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FishSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FishSprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FishName:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hcmf4"]
+resource_name = "catch"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FishSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1.4),
+"transitions": PackedFloat32Array(0.615572, 1),
+"update": 0,
+"values": [0.0, 18.8496]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FishSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 3.7, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FishSprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 1.4, 3.7, 4),
+"transitions": PackedFloat32Array(1, 1, 4, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.5, 0.5), Vector2(0.5, 0.5), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FishName:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.4, 1.5, 3.7, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..:can_fish")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gypyf"]
+_data = {
+"RESET": SubResource("Animation_ignfq"),
+"catch": SubResource("Animation_hcmf4")
+}
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_w671l")
+SPEED = 2.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_rlfmu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7psd6")
+}
+
+[node name="Sprites" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Sprites"]
+process_priority = 1
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("2_ac76m")
+
+[node name="Rod" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(0.13223, 0.724091, -0.238647, -0.140546, 0.689488, 0.227026, 0.0672148, 0.0172323, 0.944196, 0.479376, 0.551967, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("2_ac76m")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(0.676661, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0.550735, -0.30824)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("3_ku0cm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("3_t08cs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_gypyf")
+}
+
+[node name="FishSprite" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_ac76m")
+
+[node name="FishName" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 651.0
+offset_top = 685.0
+offset_right = 1270.0
+offset_bottom = 822.0
+theme_override_font_sizes/font_size = 50
+text = "FISH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" type="Control" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main" type="Panel" parent="CanvasLayer/UI/Inventory"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -427.0
+offset_top = -167.0
+offset_right = 427.0
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_iilij")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/UI/Inventory/Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 17.0
+offset_right = -14.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_iilij")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer"]
+layout_mode = 2
+columns = 6
+
+[node name="Slot1" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot1"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot2" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot2"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot3" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot3"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot4" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot4"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot5" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot5"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot6" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot6"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot7" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot7"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot8" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot8"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot9" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot9"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot10" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot10"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot11" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot11"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot12" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot12"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot13" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot13"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot14" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot14"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot15" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot15"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot16" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot16"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot17" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot17"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot18" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot18"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot19" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot19"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot20" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot20"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot21" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot21"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot22" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot22"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot23" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot23"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Slot24" type="Panel" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("4_iilij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/Main/ScrollContainer/GridContainer/Slot24"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 1036.0
+offset_bottom = 1037.0
+scale = Vector2(0.10131, 0.10131)
+stretch_mode = 3
+
+[node name="Title" type="Panel" parent="CanvasLayer/UI/Inventory"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -311.0
+offset_top = -270.0
+offset_right = 311.0
+offset_bottom = -182.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_iilij")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/Inventory/Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_iilij")
+text = "INVENTORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer"]
+offset_left = 14.0
+offset_top = -9.0
+offset_right = 663.0
+offset_bottom = 79.0
+max_value = 1.0
+step = 0.01
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.540152, 0.841567, 0, -0.841567, 0.540152, 0, 41.9335, 28.3507)
+light_energy = 16.0
+light_volumetric_fog_energy = 0.0
+spot_range = 105.414
+spot_angle = 30.0
+spot_angle_attenuation = 1.46409

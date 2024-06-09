@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dfi7bndr5khqi"]
+
+[ext_resource type="Shader" uid="uid://b7j2kg4y02krr" path="res://enviroment/waves2.tres" id="1_l744c"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_l744c")
+shader_parameter/ColorParameter = Color(0, 0.539528, 0.539527, 1)

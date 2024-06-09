@@ -1,0 +1,48 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bwnm8xifg7nve"]
+
+[ext_resource type="FontFile" uid="uid://hcxn1bm8mxhm" path="res://Style/Toucon__.ttf" id="1_wjb47"]
+[ext_resource type="FontFile" uid="uid://e8ld2ii526rc" path="res://Style/Kalam-Regular.ttf" id="2_o2a7t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euohm"]
+bg_color = Color(0.986752, 0.986752, 0.986752, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.813418, 0, 0.0842147, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjmer"]
+bg_color = Color(0.986752, 0.986752, 0.986752, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.813418, 0, 0.0842147, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngie4"]
+bg_color = Color(0.811765, 0, 0.0823529, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhjwi"]
+bg_color = Color(0.54524, 0, 0.040085, 1)
+
+[resource]
+ItemList/fonts/font = ExtResource("1_wjb47")
+ItemList/styles/panel = SubResource("StyleBoxFlat_euohm")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 10
+Label/font_sizes/font_size = 48
+Label/fonts/font = ExtResource("1_wjb47")
+Panel/styles/panel = SubResource("StyleBoxFlat_euohm")
+TooltipLabel/colors/font_color = Color(1, 1, 1, 1)
+TooltipLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+TooltipLabel/constants/outline_size = 4
+TooltipLabel/font_sizes/font_size = 32
+TooltipLabel/fonts/font = ExtResource("2_o2a7t")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_wjmer")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_ngie4")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_qhjwi")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_qhjwi")
